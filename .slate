@@ -1,0 +1,68 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Abstract positions
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias rightTwoThird move screenOriginX+screenSizeX/3;screenOriginY 2*screenSizeX/3;screenSizeY
+alias leftTwoThird move screenOriginX;screenOriginY 2*screenSizeX/3;screenSizeY
+alias leftThird move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
+alias centerThird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias rightThird move screenOriginX+2*screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+# Resize Bindings
+# +---++---++---++---++---+
+# | q || w || e || r || t |
+# +---++---++---++---++---+
+#  +---++---++---++---+
+#  | a || s || d || f |
+#  +---++---++---++---+
+#  +---++---++---++---+
+#  | z || x || c || v |
+#  +---++---++---++---+
+bind f:alt        ${full}
+
+bind z:alt        ${lefthalf}
+bind v:alt        ${righthalf}
+bind s:alt        ${topleft}
+bind d:alt        ${topright}
+bind x:alt        ${bottomleft}
+bind c:alt        ${bottomright}
+
+bind q:alt        ${leftTwoThird}
+bind t:alt        ${rightTwoThird}
+bind w:alt        ${leftThird}
+bind e:alt        ${centerThird}
+bind r:alt        ${rightThird}
+
+# Throw Bindings
+# +---++---++---++---+
+# | h ||   ||   || l |
+# +---++---++---++---+
+bind h:alt         throw left resize
+bind l:alt         throw right resize
+
+# Window Hints
+bind space:alt hint
+
+# Monitor Aliases
+alias laptop      1
+# Monitor is 0 because I set the task bar to show up on monitor
+alias monitor     0
+
+# Monitor Positions
+alias laptop-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${laptop}
+alias monitor-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${monitor}
+
+# 2 Monitor layout
+layout 2monitors 'Slack':REPEAT             ${laptop-full}
+layout 2monitors 'Android Studio':REPEAT    ${monitor-full}
+layout 2monitors 'Code':REPEAT              ${monitor-full}
+layout 2monitors 'iTerm2':REPEAT            ${laptop-full}
+default 2monitors count:2
