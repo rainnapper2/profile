@@ -5,18 +5,21 @@ VIMRC_PATH = f".vimrc"
 BASH_PROFILE_PATH = f".bash_profile"
 SLATE_PATH = f".slate"
 GIT_CONFIG_PATH = f".gitconfig"
+INPUTRC_PATH = f".inputrc"
 
 home = os.path.expanduser("~")
 HOME_VIMRC_PATH = f"{home}/{VIMRC_PATH}"
 HOME_BASH_PROFILE_PATH = f"{home}/{BASH_PROFILE_PATH}"
 HOME_SLATE_PATH = f"{home}/{SLATE_PATH}"
 HOME_GIT_CONFIG_PATH = f"{home}/{GIT_CONFIG_PATH}"
+HOME_INPUTRC_PATH = f"{home}/{INPUTRC_PATH}"
 
 profile = os.path.dirname(os.path.realpath(__file__))
 PROFILE_VIMRC_PATH = f"{profile}/{VIMRC_PATH}"
 PROFILE_BASH_PROFILE_PATH = f"{profile}/{BASH_PROFILE_PATH}"
 PROFILE_SLATE_PATH = f"{profile}/{SLATE_PATH}"
 PROFILE_GIT_CONFIG_PATH = f"{profile}/{GIT_CONFIG_PATH}"
+PROFILE_INPUTRC_PATH = f"{profile}/{INPUTRC_PATH}"
 
 replace = False
 
@@ -55,3 +58,7 @@ with open(HOME_GIT_CONFIG_PATH, "a") as git_config:
             f"\tpath = {PROFILE_GIT_CONFIG_PATH}"
         ]
     )
+
+with open(HOME_INPUTRC_PATH, "a") as inputrc:
+    print(f"Updating {HOME_INPUTRC_PATH}")
+    writelines(inputrc, [f"$include {PROFILE_INPUTRC_PATH}"])
