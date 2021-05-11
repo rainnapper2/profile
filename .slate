@@ -17,15 +17,15 @@ alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 # Resize Bindings
-# +---++---++---++---++---+
-# | q || w || e || r || t |
-# +---++---++---++---++---+
-#  +---++---++---++---+
-#  | a || s || d || f |
-#  +---++---++---++---+
-#  +---++---++---++---+
-#  | z || x || c || v |
-#  +---++---++---++---+
+# ┌───┐┌───┐┌───┐┌───┐┌───┐
+# │ q ││ w ││ e ││ r ││ t │
+# └───┘└───┘└───┘└───┘└───┘
+#  ┌───┐┌───┐┌───┐┌───┐
+#  │ _ ││ s ││ d ││ f │
+#  └───┘└───┘└───┘└───┘
+#  ┌───┐┌───┐┌───┐┌───┐
+#  │ z ││ x ││ c ││ v │
+#  └───┘└───┘└───┘└───┘
 bind f:alt        ${full}
 
 bind z:alt        ${lefthalf}
@@ -42,9 +42,9 @@ bind e:alt        ${centerThird}
 bind r:alt        ${rightThird}
 
 # Throw Bindings
-# +---++---++---++---+
-# | h ||   ||   || l |
-# +---++---++---++---+
+# ┌───┐┌───┐┌───┐┌───┐
+# │ h ││ _ ││   ││ l │
+# └───┘└───┘└───┘└───┘
 bind h:alt         throw left resize
 bind l:alt         throw right resize
 
