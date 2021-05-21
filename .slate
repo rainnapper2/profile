@@ -16,6 +16,30 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
+
+# Monitor Aliases
+alias laptop      1
+# Monitor is 0 because I set the task bar to show up on monitor
+alias monitor     0
+
+# Monitor Positions
+alias laptop-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${laptop}
+alias monitor-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${monitor}
+
+# 2 Monitor layout
+layout 2monitors 'Slack':REPEAT             ${laptop-full}
+layout 2monitors 'Android Studio':REPEAT    ${monitor-full}
+layout 2monitors 'Code':REPEAT              ${monitor-full}
+layout 2monitors 'iTerm2':REPEAT            ${laptop-full}
+default 2monitors count:2
+
+layout ultrawide 'Slack':REPEAT                 ${rightThird}
+layout ultrawide 'Android Studio':REPEAT        ${rightTwoThird}
+layout ultrawide 'Terminal':REPEAT              ${leftThird}
+layout ultrawide 'Google Chrome':REPEAT         ${leftThird}
+layout ultrawide 'qemu-system-x86_64':REPEAT    ${leftThird}
+default ultrawide resolutions:3440x1440
+
 # Resize Bindings
 # ┌───┐┌───┐┌───┐┌───┐┌───┐
 # │ q ││ w ││ e ││ r ││ t │
@@ -47,22 +71,10 @@ bind r:alt        ${rightThird}
 # └───┘└───┘└───┘└───┘
 bind h:alt         throw left resize
 bind l:alt         throw right resize
+bind 1:alt         layout ultrawide
+
+# New switcher
+# bind tab:cmd switch
 
 # Window Hints
 bind space:alt hint
-
-# Monitor Aliases
-alias laptop      1
-# Monitor is 0 because I set the task bar to show up on monitor
-alias monitor     0
-
-# Monitor Positions
-alias laptop-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${laptop}
-alias monitor-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${monitor}
-
-# 2 Monitor layout
-layout 2monitors 'Slack':REPEAT             ${laptop-full}
-layout 2monitors 'Android Studio':REPEAT    ${monitor-full}
-layout 2monitors 'Code':REPEAT              ${monitor-full}
-layout 2monitors 'iTerm2':REPEAT            ${laptop-full}
-default 2monitors count:2

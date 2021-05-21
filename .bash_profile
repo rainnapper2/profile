@@ -76,6 +76,9 @@ export PATH=/Users/mmark/bin:$PATH
 export PATH=/Users/mmark/bin/bento4-1-6-0-634/bin:$PATH
 export ANDROID_HOME=/Users/mmark/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 FIGNORE=\.DS_Store
 
@@ -87,10 +90,10 @@ alias l='ls -CF'
 alias ..="cd .."
 alias rebash='source ~/.bash_profile'
 
-alias python3='/usr/local/bin/python3'
-alias python2='/usr/bin/python2.7'
+#alias python3='/usr/local/bin/python3'
+#alias python2='/usr/bin/python2.7'
 # Use python 3 by default
-alias python=python3
+#alias python=python3
 
 # vim highlighting with less
 VLESS=$(find /usr/share/vim -name 'less.sh')

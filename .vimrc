@@ -85,6 +85,8 @@ set showcmd                     " Shows multicharacter commands
 
 set path+=**                    " Search in subfolders for tab completion
 set wildmenu                    " Display all matching files in autocomplete
+set undofile                    " Persistent undo history
+set undodir=~/.vim/undodir
 
 " switching between tabs
 map <leader>a gt

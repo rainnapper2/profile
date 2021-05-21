@@ -3,6 +3,7 @@
 	sync = !git fetch origin && git rebase origin/master
 	delete-remote = "!git push origin --delete `git rev-parse --abbrev-ref HEAD`"
 	pull-master = !git fetch origin master:master
+	rebase-master = "!git pull-master; git rebase master"
 	track-self = !git branch -u origin/`git rev-parse --abbrev-ref HEAD`
 	track-master = !git branch -u master
 	amend = !git commit -a --amend --no-edit
